@@ -52,12 +52,14 @@ module Merit
 
     def remove_badges
       sashes.each do |sash|
-        sash.rm_badge badge.id
-        notify_observers(
+        if sash.badge_ids.include?(badge.id)
+          sash.rm_badge badge.id
+          notify_observers(
             type: 'remove',
             badge: badge,
-          sash_id: sash.id
-        )
+            sash_id: sash.id
+          )
+        end
       end
     end
 
