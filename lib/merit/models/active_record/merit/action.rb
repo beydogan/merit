@@ -8,5 +8,12 @@ module Merit
       attr_accessible :user_id, :action_method, :action_value, :had_errors,
                       :target_model, :target_id, :processed, :log
     end
+
+    before_save :default_value
+
+
+	  def default_value
+	    self.processed ||= false
+	  end
   end
 end
