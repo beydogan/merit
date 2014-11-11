@@ -14,6 +14,7 @@ module Merit
 
 	  def default_value
 	    self.processed ||= false
+	    true
 	  end
   end
 end
